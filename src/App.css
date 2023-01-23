@@ -39,3 +39,17 @@
 .read-the-docs {
   color: #888;
 }
+
+.header {
+    font-family: "Segoe UI"
+}
+
+.quote {
+    font-family:"Segoe Print";
+    font-weight: 600;
+}
+
+.author {
+    font-family:"Segoe Script";
+    text-align: right;
+}

@@ -7,7 +7,15 @@ function App() {
 
   return (
     <div className="App">
-      <div>Hello World</div>
+      <h2 className="header">Quote Search</h2>
+      <div>
+        <input type="text"/>
+      </div>
+      <div>
+        <p className="quote">This is a test paragraph just for seeing how a quote may look.</p>
+        <p className="author">-Author Unknown</p>
+      </div>
+
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
