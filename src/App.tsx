@@ -1,41 +1,49 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
+
+interface Quote {
+  author: string;
+  content: string;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const defaultQuote: Quote = { author: "Matthew Larsen", content: "You'll never see this." };
+  const [randomQuote, setRandomQuote] = useState<Quote | null>(defaultQuote);
+
+  const [searchText, setSearchText] = useState("");
+  const [quotes, setQuotes] = useState<Quote[]>([]);
+
+  async function loadRandomQuote() {
+    const result = await fetch("https://usu-quotes-mimic.vercel.app/api/random");
+    const quote = await result.json();
+    setRandomQuote(quote);
+  };
+
+  useEffect(() => {
+    loadRandomQuote();
+  }, []);
+
+  function handleSubmit(event) {
+    event.preventDefault(); // Keep the page from refreshing
+    console.log(searchText);
+  };
 
   return (
     <div className="App">
       <h2 className="header">Quote Search</h2>
       <div>
-        <input type="text"/>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={searchText}
+            onChange={e => setSearchText(e.target.value)}
+          />
+        </form>
       </div>
       <div>
-        <p className="quote">This is a test paragraph just for seeing how a quote may look.</p>
-        <p className="author">-Author Unknown</p>
+        <p className="quote">{randomQuote.content}</p>
+        <p className="author">-{randomQuote.author}</p>
       </div>
-
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
