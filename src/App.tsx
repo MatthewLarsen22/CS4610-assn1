@@ -56,6 +56,7 @@ function App() {
       }
       { searchPerformed &&
         <div>
+          <h2 className="header">Quote Search</h2>
           <div>
             <form onSubmit={handleSubmit}>
               <input
@@ -69,7 +70,7 @@ function App() {
           <div>
             {
               quotes.map((quote) => (
-                <div key={quote._id}>
+                <div key={quote._id} className="quoteCard">
                   <p className="quote">{ quote.content }</p>
                   <p className="author">-{ quote.author }</p>
                 </div>

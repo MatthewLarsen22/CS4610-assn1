@@ -11,28 +11,23 @@
   -webkit-text-size-adjust: 100%;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
   background-color: LightSteelBlue;
 }
 
 #RandomQuote {
-  display: flex-box;
+  position: absolute;
+  top: 30%;
+  left: 0%;
+  padding: 8px;
+  text-align: center;
 }
 
 .searchBar {
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 16px;
+  width: 90%;
   background-image: url("/searchicon.png");
   background-position: 2px 2px;
   background-repeat: no-repeat;
@@ -51,4 +46,11 @@ body {
 .author {
     font-family:"Segoe Script";
     text-align: right;
+}
+
+.quoteCard{
+  background-color: #8492a4;
+  border-radius: 16px;
+  margin: 4px;
+  padding: 8px;
 }
