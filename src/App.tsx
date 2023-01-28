@@ -22,8 +22,8 @@ function App() {
     loadRandomQuote();
   }, []);
 
-  function handleSubmit(event) {
-    event.preventDefault(); // Keep the page from refreshing
+  function handleSubmit(e) {
+    e.preventDefault(); // Keep the page from refreshing
     console.log(searchText);
   };
 
@@ -40,10 +40,12 @@ function App() {
           />
         </form>
       </div>
+      { randomQuote != null &&
       <div>
-        <p className="quote">{randomQuote.content}</p>
-        <p className="author">-{randomQuote.author}</p>
+        <p className="quote">{ randomQuote.content }</p>
+        <p className="author">-{ randomQuote.author }</p>
       </div>
+      }
     </div>
   )
 }
