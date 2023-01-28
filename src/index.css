@@ -25,10 +25,20 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: LightSteelBlue;
+}
+
+.searchBar {
+  border-radius: 4px;
+  font-size: 16px;
+  background-image: url("/searchicon.png");
+  background-position: 2px 2px;
+  background-repeat: no-repeat;
+  padding: 4px 4px 4px 26px;
 }
 
 .header {
-    font-family: "Segoe UI"
+    font-family: "Segoe UI";
 }
 
 .quote {

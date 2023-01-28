@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
 
 interface Quote {
   author: string;
@@ -34,6 +33,7 @@ function App() {
       <div>
         <form onSubmit={handleSubmit}>
           <input
+            className="searchBar"
             type="text"
             value={searchText}
             onChange={e => setSearchText(e.target.value)}
